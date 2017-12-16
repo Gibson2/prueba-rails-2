@@ -1,0 +1,24 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <h1>Tasks</h1>
+
+  <div class="row">
+    <% @tasks.each do |task| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div> <%= image_tag task.photo %> </div> 
+        
+        <div class="caption">
+          <div> <%= task.title %> </div>
+          
+          <p> <%= task.description %> </p>
+
+          <p>
+            <%= link_to "#{task.completed?(current_user) ? 'Completado' : 'Falta'}", task_todos_path(task), class:"#{task.completed?(current_user) ? 'btn btn-success' : 'btn btn-danger'}", method: :post %>           
+          </p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

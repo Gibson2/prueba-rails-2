@@ -1,0 +1,26 @@
+<nav class="navbar navbar-inverse navbar-fixed" role="navigation">
+	<div class="container">
+		 <%= link_to "TodoApp", root_path, class: "navbar-brand" %>
+		<ul class="nav navbar-nav">
+			<li class="active">
+			</li>
+			<li>
+				<a href="<%= todos_path %>">Completados</a>
+			</li>
+			<li>
+				<a href="<%= faltantes_todos_path %>">Faltantes</a>
+			</li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			
+			<% if  user_signed_in? %>
+				<li>
+					<a href="javascript:void(0)">Tareas completadas: <%= Task.task_count(current_user) %></a>
+				</li>
+				<li>
+					<%= link_to "salir", destroy_user_session_path, method: :delete %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+</nav>

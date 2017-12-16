@@ -1,0 +1,35 @@
+<div class="container">
+	<p id="notice"><%= notice %></p>
+
+	<div class="row">
+		<div class="col-md-6">
+			<hr>
+
+			<h2>Usuarios</h2>
+			
+				<% @task_users.each do |user| %>
+				<h3><%= user.name %></h3>
+				<%= image_tag user.photo, class: "img-responsive" if user.photo %>
+
+				<% end %>
+			
+		</div>	
+	    <div class="col-md-6">
+
+		     <%= image_tag @task.photo %>
+				
+				<h3><%= @task.title %></h3>	
+			<p>
+				<%= @task.description %>
+			</p>
+		</div>
+		<div class="col-md-6 col-md-offset-3">
+			<% @ranking.each do |ranking| %>
+				<h2>Ranking de usuarios</h3>
+				<ul>
+					<li><h3><%= ranking.user.name %></h3></li>	
+				</ul>
+			<% end %>
+		</div>
+	</div>
+</div>

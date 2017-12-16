@@ -1,0 +1,22 @@
+<div class="container">
+      <p id="notice"><%= notice %></p>
+      <h1>Tasks</h1>
+
+<div class="row">
+  <% @tasks.each do |task| %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div> <%= image_tag task.photo %> </div> 
+      
+      <div class="caption">
+        <div> <%= task.title %> </div>
+        
+        <p> <%= task.description %> </p>
+
+        <a href="javascript:void(0)" class="btn btn-success">Completado</a>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+</div>
